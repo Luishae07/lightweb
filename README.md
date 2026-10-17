@@ -44,7 +44,8 @@ site's keys are kept in `<folder>/.lw` (keep that folder: it is what proves the 
 `.sf` pages describe structure, layout, style, state and logic in one file. A page can describe itself for search engines
 with `document_description_crawl = "..."`. Pages in the older `.lw` format work too.
 
-## Status
+## Status and license
 
-Early version (v0.1.0). The Light.web browser is not part of this repository yet. No license has been chosen yet, so until one is
-added the files are not licensed for redistribution.
+Early version (v0.1.0). The Light.web browser is not part of this repository yet.
+
+Released under the [MIT License](LICENSE).
