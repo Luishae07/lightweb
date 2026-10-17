@@ -1,10 +1,10 @@
-# Light.web: lwserve
+# Light.web: the browser and lwserve
 
 `lwserve` runs a **Light.web** site from a folder of pages. Light.web is a small web of its own: sites have names like
 `blog.nerd`, pages are written in **SFAGHC** (`.sf` files), and a browser finds a site by asking a name service where it lives.
 This repository holds the downloads for the program that hosts a site.
 
-## Install
+## Install lwserve (runs a site)
 
 Linux and macOS:
 
@@ -18,7 +18,22 @@ checks its checksum, and puts `lwserve` in `~/.local/bin`. Windows: download `lw
 | `lwserve-linux-amd64`, `lwserve-linux-arm64` | Linux |
 | `lwserve-macos-arm64`, `lwserve-macos-amd64` | macOS (Apple Silicon, Intel) |
 | `lwserve-windows-amd64.exe` | Windows |
+| `Light.web-macos-apple-silicon.zip`, `Light.web-macos-intel.zip` | the Light.web browser for Mac |
 | `SHA256SUMS` | checksums of all of the above |
+
+## The browser (macOS)
+
+The Light.web browser is a small Mac app, for Apple Silicon and Intel:
+
+    curl -fsSL https://raw.githubusercontent.com/Luishae07/lightweb/main/install-app.sh | sh
+
+It downloads the right version, checks it, and puts `Light.web.app` in Applications. Open it, press **Cmd+L**, and type a name,
+for example `blog.nerd`, `sfadocs.nerd` or `search.cool`.
+
+You can also download `Light.web-macos-apple-silicon.zip` or `Light.web-macos-intel.zip` from the
+[latest release](https://github.com/Luishae07/lightweb/releases/latest) yourself. The app is not signed by Apple, so macOS
+asks you to confirm the first time: right-click the app, choose **Open**, and confirm. (The installer above avoids this.)
+Not sure which chip you have? Run `uname -m`: `arm64` is Apple Silicon, `x86_64` is Intel.
 
 ## Run a site
 
@@ -46,6 +61,6 @@ with `document_description_crawl = "..."`. Pages in the older `.lw` format work 
 
 ## Status and license
 
-Early version (v0.1.0). The Light.web browser is not part of this repository yet.
+Early version (v0.2.0). The browser and `lwserve` are built from source that is not published here yet.
 
 Released under the [MIT License](LICENSE).
