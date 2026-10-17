@@ -61,6 +61,6 @@ with `document_description_crawl = "..."`. Pages in the older `.lw` format work 
 
 ## Status and license
 
-Early version (v0.2.0). The browser and `lwserve` are built from source that is not published here yet.
+Early version (v0.2.1). The browser and `lwserve` are built from source that is not published here yet.
 
 Released under the [MIT License](LICENSE).
