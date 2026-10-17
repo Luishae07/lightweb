@@ -45,11 +45,14 @@ Make a folder with a front page, `index.sf`:
         h1 "Hello from my site"
         text "It works."
 
-Browsers reach your site through the address you give with `-advertise`. On a home connection that is usually a tunnel;
-for example with [bore](https://github.com/ekzhang/bore):
+Then start it. On a home connection the easy way is `-bore`: `lwserve` opens a free public tunnel through
+[bore.pub](https://github.com/ekzhang/bore) by itself, registers the address it is given, and does it again if the tunnel
+restarts. If bore is not installed, the prebuilt program is downloaded for you (to `~/.lightweb/bin`).
 
-    bore local 7100 --to bore.pub        # prints the public port, for example bore.pub:41234
-    lwserve -name mysite.nerd -advertise bore.pub:41234 -dir ./pages
+    lwserve -name mysite.nerd -bore -dir ./pages
+
+Your pages stay encrypted all the way; the relay only passes the traffic on. If you already have a public address or your own
+tunnel, give it with `-advertise host:port` instead of `-bore`.
 
 `lwserve -h` lists every option. The name service is found automatically. A name is first come, first served, and your
 site's keys are kept in `<folder>/.lw` (keep that folder: it is what proves the name is yours).
@@ -61,6 +64,6 @@ with `document_description_crawl = "..."`. Pages in the older `.lw` format work 
 
 ## Status and license
 
-Early version (v0.2.1). The browser and `lwserve` are built from source that is not published here yet.
+Early version (v0.3.0). The browser and `lwserve` are built from source that is not published here yet.
 
 Released under the [MIT License](LICENSE).
