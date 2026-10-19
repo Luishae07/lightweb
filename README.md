@@ -73,7 +73,17 @@ You do not have to trust a mirror. Every record carries the site owner's signatu
 prove, and the browser checks the signature again, so a mirror cannot change where a name points without being caught. A mirror
 can only show an out-of-date address (one that has since moved).
 
-To try a mirror, start the browser with `-sfw host:port` of the mirror. The browser does not switch to mirrors by itself yet.
+## How the browser picks a name service
+
+The browser reads [`nodes.txt`](nodes.txt) (the list of mirrors, one `host:port` per line) and asks the main SFW and every mirror
+how fast they answer. It uses the quickest one, with a small preference for the main SFW, and does this again every five minutes.
+If the chosen node does not answer, or a mirror does not know a name, the browser asks the next one. A mirror's answer is
+only used if the site owner signed it within the last two hours; otherwise the browser asks the main SFW. Registrations and new
+top-level names always go to the main SFW.
+
+To add your mirror, open a pull request that adds one line (`your.host:7001`) to `nodes.txt`. To use one node only, start the
+browser with `-sfw host:port`.
+
 Names show up in a mirror after their site next refreshes its registration, which happens every 10 minutes.
 
 ## About the name `.sf` pages
@@ -83,6 +93,6 @@ with `document_description_crawl = "..."`. Pages in the older `.lw` format work 
 
 ## Status and license
 
-Early version (v0.3.3). The browser and `lwserve` are built from source that is not published here yet.
+Early version (v0.3.4). The browser and `lwserve` are built from source that is not published here yet.
 
 Released under the [MIT License](LICENSE).
