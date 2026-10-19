@@ -66,6 +66,12 @@ Download `sfw-<your system>` from the [latest release](https://github.com/Luisha
 
     ./sfw-macos-arm64 -mirror <address of the main SFW> -listen :7001
 
+On a home connection, add `-bore`: the mirror opens a free public tunnel through [bore.pub](https://github.com/ekzhang/bore) by
+itself (downloading bore to `~/.lightweb/bin` if it is missing), prints its public address, and opens the tunnel again if it
+stops. Add that address to `nodes.txt` to list your mirror.
+
+    ./sfw-macos-arm64 -mirror <address of the main SFW> -bore -listen :7001
+
 It copies every name from the main SFW once a minute and answers lookups itself. It keeps its files in
 `~/.lightweb-sfw-mirror`. A mirror cannot take registrations: sites keep registering at the main SFW.
 
@@ -93,6 +99,6 @@ with `document_description_crawl = "..."`. Pages in the older `.lw` format work 
 
 ## Status and license
 
-Early version (v0.3.4). The browser and `lwserve` are built from source that is not published here yet.
+Early version (v0.3.5). The browser and `lwserve` are built from source that is not published here yet.
 
 Released under the [MIT License](LICENSE).
