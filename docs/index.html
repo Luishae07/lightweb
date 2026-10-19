@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Light.web</title>
+<meta name="description" content="Light.web is a small web of its own: sites with names like blog.nerd, pages written in SFAGHC, a browser for Mac and lwserve to host your own site.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://luishae07.github.io/lightweb/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#14161a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e56b8'/%3E%3Cpath d='M32 12l6 14 14 2-10 10 3 14-13-7-13 7 3-14L12 28l14-2z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fafaf7;--ink:#1b1a17;--dim:#5d6168;--card:#f0efe9;--line:#dedbd2;--accent:#1e56b8;--accent-ink:#fff;--code:#14161a;--code-ink:#9fe0b4}
+@media (prefers-color-scheme: dark){:root{--bg:#14161a;--ink:#e8e9ec;--dim:#9aa0aa;--card:#1d2026;--line:#2c303a;--accent:#8ab4ff;--accent-ink:#0d1a33;--code:#0b0d10;--code-ink:#9fe0b4}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 -apple-system,system-ui,"Segoe UI",sans-serif}
+main{max-width:46rem;margin:0 auto;padding:0 16px 4rem}
+header{padding:3.2rem 0 1.4rem}
+h1{font-size:clamp(2.2rem,8vw,3.4rem);line-height:1.05;margin:0 0 .6rem;font-weight:700;letter-spacing:-.02em}
+h2{font-size:1.4rem;margin:2.6rem 0 .6rem}
+p{margin:.5rem 0}
+.lead{font-size:1.2rem;color:var(--dim)}
+.btns{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.2rem 0 .4rem}
+a.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:12px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none}
+a.btn.alt{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.note{color:var(--dim);font-size:.9rem}
+pre{background:var(--code);color:var(--code-ink);border-radius:12px;padding:.9rem 1rem;overflow-x:auto;font:14px/1.5 ui-monospace,Menlo,Consolas,monospace;margin:.7rem 0}
+code{font:.92em ui-monospace,Menlo,Consolas,monospace;background:var(--card);padding:.1rem .35rem;border-radius:6px}
+pre code{background:none;padding:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.8rem;margin-top:.8rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem}
+.card b{display:block;margin-bottom:.2rem}
+table{width:100%;border-collapse:collapse;font-size:.95rem;margin:.6rem 0}
+td,th{text-align:left;padding:.45rem .5rem;border-bottom:1px solid var(--line);vertical-align:top}
+a{color:var(--accent)}
+footer{margin-top:3rem;color:var(--dim);font-size:.9rem;border-top:1px solid var(--line);padding-top:1rem}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>Light.web</h1>
+  <p class="lead">A small web of its own. Sites have names like <code>blog.nerd</code>, pages are written in one simple language, and anyone can host a site from a folder.</p>
+  <div class="btns">
+    <a class="btn" id="dl" href="https://github.com/Luishae07/lightweb/releases/latest">Download the browser</a>
+    <a class="btn alt" href="https://github.com/Luishae07/lightweb/releases/latest">All downloads</a>
+    <a class="btn alt" href="https://github.com/Luishae07/lightweb/wiki">Wiki</a>
+  </div>
+  <p class="note" id="ver">Latest version: loading…</p>
+</header>
+
+<h2>What it is</h2>
+<div class="cards">
+  <div class="card"><b>Names</b>A site is found by name, like <code>search.cool</code>. A name service (the SFW) tells the browser where the site lives.</div>
+  <div class="card"><b>One page language</b>SFAGHC (<code>.sf</code> files) holds structure, layout, style, state and logic in a single file. No closing tags.</div>
+  <div class="card"><b>Your own site</b><code>lwserve</code> serves a folder, opens a free tunnel for you, and registers your name. Home connection is enough.</div>
+</div>
+
+<h2>The browser (Mac)</h2>
+<p>For Apple Silicon and Intel. One line installs it and puts <code>Light.web.app</code> in Applications:</p>
+<pre><code>curl -fsSL https://raw.githubusercontent.com/Luishae07/lightweb/main/install-app.sh | sh</code></pre>
+<p>Open it, press <strong>Cmd+L</strong> and type a name, for example <code>blog.nerd</code>, <code>sfadocs.nerd</code> or <code>search.cool</code>.</p>
+
+<h2>Host a site</h2>
+<p>Install <code>lwserve</code> (Linux and macOS):</p>
+<pre><code>curl -fsSL https://raw.githubusercontent.com/Luishae07/lightweb/main/install.sh | sh</code></pre>
+<p>Make a folder with a front page, <code>index.sf</code>:</p>
+<pre><code>page "Hello"
+  document_description_crawl = "My first Light.web page"
+  column gap=16
+    h1 "Hello from my site"
+    text "It works."</code></pre>
+<p>Start it. <code>-bore</code> opens a free public tunnel by itself and registers your name:</p>
+<pre><code>lwserve -name mysite.nerd -bore -dir ./pages</code></pre>
+<p class="note">Pages stay encrypted all the way; the relay only passes the traffic on. Windows: download <code>lwserve-windows-amd64.exe</code> from the releases.</p>
+
+<h2>Downloads</h2>
+<table>
+  <tr><th>File</th><th>For</th></tr>
+  <tr><td><code>Light.web-macos-apple-silicon.zip</code>, <code>Light.web-macos-intel.zip</code></td><td>The browser for Mac</td></tr>
+  <tr><td><code>lwserve-linux-amd64</code>, <code>-linux-arm64</code>, <code>-macos-arm64</code>, <code>-macos-amd64</code>, <code>-windows-amd64.exe</code></td><td>Host a site</td></tr>
+  <tr><td><code>sfw-…</code> (same systems)</td><td>Run a name service mirror</td></tr>
+  <tr><td><code>SHA256SUMS</code></td><td>Checksums of all files</td></tr>
+</table>
+
+<h2>Help the name service</h2>
+<p>Anyone can run a read-only mirror of the name service, so names can still be looked up when the main one is away. A mirror cannot change where a name points: every record carries the site owner's signature, and the browser checks it. The browser reads <a href="https://github.com/Luishae07/lightweb/blob/main/nodes.txt"><code>nodes.txt</code></a> every five minutes and uses the quickest node.</p>
+<pre><code>sfw -mirror &lt;main SFW address&gt; -listen :7001</code></pre>
+<p>Add your public address to <code>nodes.txt</code> with a pull request. Details are in the <a href="https://github.com/Luishae07/lightweb#run-an-sfw-mirror-help-the-name-service">README</a>.</p>
+
+<h2>Learn the language</h2>
+<p>The SFAGHC guide, with examples, is on the <a href="https://github.com/Luishae07/lightweb/wiki">wiki</a>, and as a site inside Light.web itself: open <code>sfadocs.nerd</code> in the browser. Big files can be offered for download with a single line, <code>download_hosted_file=/thing.zip</code>.</p>
+
+<footer>
+  Light.web is early software (MIT license). The browser is not signed by Apple, so macOS asks you to confirm the first time: right-click the app, choose Open.
+  &middot; <a href="https://github.com/Luishae07/lightweb">GitHub</a> &middot; <a href="https://github.com/Luishae07/lightweb/blob/main/LICENSE">License</a> &middot; <a href="https://github.com/Luishae07/lightweb/blob/main/CONTRIBUTING.md">Contribute</a>
+</footer>
+</main>
+<script>
+// Shows the newest version and points the main button at the right Mac download.
+(function () {
+  fetch('https://api.github.com/repos/Luishae07/lightweb/releases/latest', { headers: { Accept: 'application/vnd.github+json' } })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d) { document.getElementById('ver').textContent = ''; return; }
+      document.getElementById('ver').textContent = 'Latest version: ' + d.tag_name;
+      var mac = /Mac/i.test(navigator.platform || navigator.userAgent);
+      if (mac) {
+        var arm = (d.assets || []).filter(function (a) { return a.name === 'Light.web-macos-apple-silicon.zip'; })[0];
+        var intel = (d.assets || []).filter(function (a) { return a.name === 'Light.web-macos-intel.zip'; })[0];
+        var btn = document.getElementById('dl');
+        // The browser cannot tell the chip reliably, so the main button goes to the releases and both zips are named in the table.
+        if (arm && intel) btn.textContent = 'Download for Mac';
+      }
+    })
+    .catch(function () { document.getElementById('ver').textContent = ''; });
+})();
+</script>
+</body>
+</html>
