@@ -19,6 +19,8 @@ checks its checksum, and puts `lwserve` in `~/.local/bin`. Windows: download `lw
 | `lwserve-macos-arm64`, `lwserve-macos-amd64` | macOS (Apple Silicon, Intel) |
 | `lwserve-windows-amd64.exe` | Windows |
 | `Light.web-macos-apple-silicon.zip`, `Light.web-macos-intel.zip` | the Light.web browser for Mac |
+| `Light.web-windows-amd64.zip` | the Light.web browser for Windows |
+| `lightweb_0.3.7_amd64.deb` | the Light.web browser for Debian and Ubuntu (22.04 or newer) |
 | `SHA256SUMS` | checksums of all of the above |
 
 ## The browser (macOS)
@@ -34,6 +36,18 @@ You can also download `Light.web-macos-apple-silicon.zip` or `Light.web-macos-in
 [latest release](https://github.com/Luishae07/lightweb/releases/latest) yourself. The app is not signed by Apple, so macOS
 asks you to confirm the first time: right-click the app, choose **Open**, and confirm. (The installer above avoids this.)
 Not sure which chip you have? Run `uname -m`: `arm64` is Apple Silicon, `x86_64` is Intel.
+
+## The browser (Windows and Linux)
+
+Windows: download `Light.web-windows-amd64.zip`, unzip it and open `Light.web.exe`. It is not signed, so SmartScreen may ask you
+to confirm: choose **More info**, then **Run anyway**.
+
+Debian and Ubuntu:
+
+    curl -fsSLO https://github.com/Luishae07/lightweb/releases/download/v0.3.7/lightweb_0.3.7_amd64.deb
+    sudo apt install ./lightweb_0.3.7_amd64.deb
+
+Then start **Light.web** from the menu, or run `lightweb`. Press **Ctrl+L** and type a name such as `blog.nerd`.
 
 ## Run a site
 
