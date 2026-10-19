@@ -23,6 +23,29 @@ checks its checksum, and puts `lwserve` in `~/.local/bin`. Windows: download `lw
 | `lightweb_0.3.7_amd64.deb` | the Light.web browser for Debian and Ubuntu (22.04 or newer) |
 | `SHA256SUMS` | checksums of all of the above |
 
+## Direct downloads (v0.3.7)
+
+| For | Download |
+|---|---|
+| Windows (bare program) | [Light.web-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/Light.web-windows-amd64.exe) |
+| Windows (zipped) | [Light.web-windows-amd64.zip](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/Light.web-windows-amd64.zip) |
+| Debian / Ubuntu | [lightweb_0.3.7_amd64.deb](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/lightweb_0.3.7_amd64.deb) |
+| Mac, Apple Silicon | [Light.web-macos-apple-silicon.zip](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/Light.web-macos-apple-silicon.zip) |
+| Mac, Intel | [Light.web-macos-intel.zip](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/Light.web-macos-intel.zip) |
+| lwserve, Linux (amd64) | [lwserve-linux-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/lwserve-linux-amd64) |
+| lwserve, Linux (arm64) | [lwserve-linux-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/lwserve-linux-arm64) |
+| lwserve, Mac (Apple Silicon) | [lwserve-macos-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/lwserve-macos-arm64) |
+| lwserve, Mac (Intel) | [lwserve-macos-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/lwserve-macos-amd64) |
+| lwserve, Windows | [lwserve-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/lwserve-windows-amd64.exe) |
+| sfw, Linux (amd64) | [sfw-linux-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/sfw-linux-amd64) |
+| sfw, Linux (arm64) | [sfw-linux-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/sfw-linux-arm64) |
+| sfw, Mac (Apple Silicon) | [sfw-macos-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/sfw-macos-arm64) |
+| sfw, Mac (Intel) | [sfw-macos-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/sfw-macos-amd64) |
+| sfw, Windows | [sfw-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/sfw-windows-amd64.exe) |
+| checksums of every file | [SHA256SUMS](https://github.com/Luishae07/lightweb/releases/download/v0.3.7/SHA256SUMS) |
+
+The newest release is always at <https://github.com/Luishae07/lightweb/releases/latest>.
+
 ## The browser (macOS)
 
 The Light.web browser is a small Mac app, for Apple Silicon and Intel:
