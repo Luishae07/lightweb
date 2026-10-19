@@ -1,3 +1,4 @@
 # Light.web name service mirrors, one host:port per line. The browser reads this list every five minutes and uses the quickest
 # node that answers (the main SFW is always tried as well). To add a mirror, run  sfw -mirror <main SFW> -listen :7001
 # and add your public address here in a pull request. Lines starting with # are comments.
+bore.pub:25960
