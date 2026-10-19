@@ -57,6 +57,25 @@ tunnel, give it with `-advertise host:port` instead of `-bore`.
 `lwserve -h` lists every option. The name service is found automatically. A name is first come, first served, and your
 site's keys are kept in `<folder>/.lw` (keep that folder: it is what proves the name is yours).
 
+## Run an SFW mirror (help the name service)
+
+The SFW is the name service that tells a browser where a name like `mysite.nerd` lives. A mirror is a read-only copy of it.
+Anyone can run one, so names can still be looked up when the main SFW is away.
+
+Download `sfw-<your system>` from the [latest release](https://github.com/Luishae07/lightweb/releases/latest) and start it:
+
+    ./sfw-macos-arm64 -mirror <address of the main SFW> -listen :7001
+
+It copies every name from the main SFW once a minute and answers lookups itself. It keeps its files in
+`~/.lightweb-sfw-mirror`. A mirror cannot take registrations: sites keep registering at the main SFW.
+
+You do not have to trust a mirror. Every record carries the site owner's signature, the mirror leaves out any record it cannot
+prove, and the browser checks the signature again, so a mirror cannot change where a name points without being caught. A mirror
+can only show an out-of-date address (one that has since moved).
+
+To try a mirror, start the browser with `-sfw host:port` of the mirror. The browser does not switch to mirrors by itself yet.
+Names show up in a mirror after their site next refreshes its registration, which happens every 10 minutes.
+
 ## About the name `.sf` pages
 
 `.sf` pages describe structure, layout, style, state and logic in one file. A page can describe itself for search engines
@@ -64,6 +83,6 @@ with `document_description_crawl = "..."`. Pages in the older `.lw` format work 
 
 ## Status and license
 
-Early version (v0.3.1). The browser and `lwserve` are built from source that is not published here yet.
+Early version (v0.3.3). The browser and `lwserve` are built from source that is not published here yet.
 
 Released under the [MIT License](LICENSE).
