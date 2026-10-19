@@ -4,11 +4,37 @@ Thanks for wanting to help. The best way to help Light.web is to host a mirror. 
 
 ## Host a mirror (the best way to help)
 
-A mirror is a read-only copy of the SFW name service that helps when the main one is away (`sfw -mirror <main> -bore`, see the
-[README](README.md)). To list yours, open a pull request that adds one `host:port` line to `nodes.txt`. Download `sfw-<your system>` from the
-[latest release](https://github.com/Luishae07/lightweb/releases/latest) and start it with `-bore` if you are on a home connection.
-Make sure it answers
-before you ask, and keep it running; a node that is down is dropped from the list.
+The SFW is the name service that tells a browser where a name like `blog.nerd` lives. A mirror is a read-only copy of it. When the
+main SFW is slow or away, browsers ask a mirror instead, so every mirror makes Light.web faster and harder to knock over. You do
+not need a public address, a domain or a server in a data center: a laptop on a home connection is enough.
+
+**Why it is safe for everyone.** Every record in the name service is signed by the site that owns it. A mirror leaves out any
+record it cannot prove, and the browser checks the signature again, so a mirror cannot change where a name points. The worst it can
+do is show an address that has since moved. Running one does not give anybody access to your computer, and a mirror cannot take
+registrations; sites keep registering at the main SFW.
+
+**How to start one**
+
+1. Download `sfw-<your system>` from the [latest release](https://github.com/Luishae07/lightweb/releases/latest) (Linux, macOS or
+   Windows, Intel or ARM). Check it against `SHA256SUMS` if you like.
+2. Start it. On a home connection add `-bore`: the mirror opens a free public tunnel by itself, prints its public address, and
+   opens the tunnel again if it drops.
+
+       ./sfw-linux-amd64 -mirror <address of the main SFW> -bore -listen :7001
+
+   The address of the main SFW is in the [README](README.md). The mirror copies every name once a minute and keeps its files in
+   `~/.lightweb-sfw-mirror`.
+3. Write down the public address it prints (it looks like `bore.pub:12345`). You can test it from the Light.web browser with
+   `-sfw bore.pub:12345`: open any site name, and if the page loads, the mirror works.
+4. Open a pull request that adds one line, that address, to `nodes.txt`. The list is checked about every five minutes. Nodes are
+   ranked by how fast they answer, so a slow or dead one is simply not used.
+
+**Keep it running.** A mirror is only useful while it is up. If you can leave it on a home server, a Raspberry Pi, or a small
+cloud machine, run it as a service (`systemd` on Linux, a Login Item or `launchd` on macOS). A free bore address can change when
+the tunnel restarts; the mirror prints the new one, and your line in `nodes.txt` then needs updating. If your node is down for
+long it will be removed from the list, and you can always add it back.
+
+Two mirrors that run for months are worth more than ten that run for a day.
 
 ## Or make a site
 
