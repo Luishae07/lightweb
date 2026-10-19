@@ -4,4 +4,4 @@
 # address are measured every five minutes by a bot (tools/nodecheck.py), so do not write them yourself.
 # main SFW: ping 0.5s, sites 98
 bore.pub:25960  # down
-bore.pub:15896  # ping 0.5s, sites 89
+bore.pub:15896  # down
