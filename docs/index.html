@@ -15,11 +15,21 @@
   --accent:#3b6df0;--accent2:#7a5cff;--accent-ink:#fff;--glow:rgba(91,120,255,.28);
   --code:#0f1320;--code-ink:#cfe3ff;--code-dim:#7f8db0;--ok:#2a9d6a;--shadow:0 10px 30px rgba(30,40,90,.10);
 }
-@media (prefers-color-scheme: dark){:root{
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0c0f15;--bg2:#121725;--ink:#eef1f8;--dim:#98a2b8;--card:#141926;--line:#242b3d;
   --accent:#7ba0ff;--accent2:#a48bff;--accent-ink:#0b1022;--glow:rgba(110,140,255,.20);
   --code:#0a0d14;--code-ink:#cfe3ff;--code-dim:#6f7c9c;--ok:#4cc38a;--shadow:0 10px 30px rgba(0,0,0,.45);
 }}
+:root[data-theme="dark"]{
+  --bg:#0c0f15;--bg2:#121725;--ink:#eef1f8;--dim:#98a2b8;--card:#141926;--line:#242b3d;
+  --accent:#7ba0ff;--accent2:#a48bff;--accent-ink:#0b1022;--glow:rgba(110,140,255,.20);
+  --code:#0a0d14;--code-ink:#cfe3ff;--code-dim:#6f7c9c;--ok:#4cc38a;--shadow:0 10px 30px rgba(0,0,0,.45);
+}
+:root[data-theme="light"]{
+  --bg:#f6f7fb;--bg2:#eceffa;--ink:#141824;--dim:#5a6275;--card:#ffffff;--line:#e0e4f0;
+  --accent:#3b6df0;--accent2:#7a5cff;--accent-ink:#fff;--glow:rgba(91,120,255,.28);
+  --code:#0f1320;--code-ink:#cfe3ff;--code-dim:#7f8db0;--ok:#2a9d6a;--shadow:0 10px 30px rgba(30,40,90,.10);
+}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
@@ -126,6 +136,32 @@ h2{font-size:clamp(1.7rem,4.5vw,2.3rem);letter-spacing:-.025em;line-height:1.15;
 .facts div{border-left:3px solid var(--accent);padding:.2rem .9rem;color:var(--dim);font-size:.94rem}
 .facts div b{color:var(--ink);display:block}
 
+/* nicer touches */
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+.hero{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;background-position:-1px -1px}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,var(--bg));pointer-events:none}
+.hero::before{z-index:0}.hero .wrap{z-index:1}
+.tbtn{margin-left:.3rem;width:2.1rem;height:2.1rem;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:grid;place-items:center;font-size:1rem}
+.tbtn:hover{border-color:var(--accent)}
+nav .links a.on{color:var(--ink);font-weight:600}
+.win .page{min-height:15.5rem;transition:opacity .35s}
+.win .page.out{opacity:0}
+.win .fake{margin:.7rem 0;border:1px solid var(--line);border-radius:10px;padding:.5rem .8rem;color:var(--dim);font-size:.9rem;background:var(--bg)}
+.win ul{margin:.4rem 0 0;padding-left:1.1rem;color:var(--dim);font-size:.93rem}
+.stats{display:flex;flex-wrap:wrap;gap:.8rem 2.2rem;justify-content:center;padding:1.3rem 0;border-block:1px solid var(--line);background:var(--card)}
+.stats div{text-align:center;min-width:6.5rem}
+.stats b{display:block;font-size:1.7rem;letter-spacing:-.02em;line-height:1.1;background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stats span{font-size:.82rem;color:var(--dim)}
+.try{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin-top:1rem}
+.try .site{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.1rem 1.2rem;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:.5rem;transition:transform .15s,border-color .15s}
+.try .site:hover{transform:translateY(-3px);border-color:var(--accent)}
+.try .name{font:700 1.05rem ui-monospace,Menlo,monospace;color:var(--accent)}
+.try p{margin:0;color:var(--dim);font-size:.94rem;flex:1}
+.try button{align-self:flex-start;font:600 .82rem system-ui,sans-serif;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:9px;padding:.35rem .75rem;cursor:pointer}
+.try button:hover{border-color:var(--accent)}
+.totop{position:fixed;right:16px;bottom:16px;width:2.6rem;height:2.6rem;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:var(--shadow);display:none;place-items:center;font-size:1.1rem;z-index:30}
+.totop.show{display:grid}
+
 footer{padding:2.4rem 0 3rem;color:var(--dim);font-size:.9rem;border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center}
 footer .sp{flex:1}
@@ -137,7 +173,7 @@ footer .sp{flex:1}
 <body>
 <nav><div class="wrap">
   <a class="logo" href="#top"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5v14h11"/></svg></i>Light.web</a>
-  <div class="links"><a href="#browser">Browser</a><a href="#host">Host a site</a><a class="opt" href="#language">Language</a><a class="opt" href="#names">Names</a><a class="opt" href="#mirrors">Mirrors</a><a href="https://github.com/Luishae07/lightweb">GitHub</a></div>
+  <div class="links"><a class="opt" href="#try">Try it</a><a href="#browser">Browser</a><a href="#host">Host a site</a><a class="opt" href="#language">Language</a><a class="opt" href="#names">Names</a><a class="opt" href="#mirrors">Mirrors</a><a href="https://github.com/Luishae07/lightweb">GitHub</a><button class="tbtn" id="tt" title="Switch light and dark" aria-label="Switch light and dark">&#9680;</button></div>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
@@ -152,8 +188,8 @@ footer .sp{flex:1}
     </div>
   </div>
   <div class="win" aria-hidden="true">
-    <div class="bar"><i></i><i></i><i></i><span class="addr">blog.nerd</span></div>
-    <div class="page">
+    <div class="bar"><i></i><i></i><i></i><span class="addr" id="maddr">blog.nerd</span></div>
+    <div class="page" id="mock">
       <h3>Hello from my site</h3>
       <p>Written in a single <code>.sf</code> file. No closing tags.</p>
       <div class="row"><span class="chip">light.web</span><span class="chip">SFAGHC</span><span class="chip">encrypted</span></div>
@@ -161,6 +197,13 @@ footer .sp{flex:1}
     </div>
   </div>
 </div></header>
+
+<div class="stats" id="stats" aria-label="Live numbers">
+  <div><b id="s-names">&hellip;</b><span>names registered</span></div>
+  <div><b id="s-nodes">&hellip;</b><span>name service nodes</span></div>
+  <div><b id="s-ver">&hellip;</b><span>latest version</span></div>
+  <div><b>MIT</b><span>license</span></div>
+</div>
 
 <section class="reveal"><div class="wrap">
   <div class="eyebrow">What it is</div>
@@ -173,6 +216,18 @@ footer .sp{flex:1}
     <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><h3>Host from a folder</h3><p><code>lwserve</code> serves a folder, opens a free tunnel and registers your name. A home connection is enough.</p></div>
     <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 19h14"/></svg></div><h3>Big downloads</h3><p>One line, <code>download_hosted_file=/thing.zip</code>, offers a file of up to 7000 GB. It streams straight to disk.</p></div>
     <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.2 11l7.6-4M8.2 13l7.6 4"/></svg></div><h3>Community name service</h3><p>Anyone can run a read-only mirror of the name service. The browser picks the quickest one.</p></div>
+  </div>
+</div></section>
+
+<section class="reveal" id="try"><div class="wrap">
+  <div class="eyebrow">Try it</div>
+  <h2>Sites you can open right now</h2>
+  <p class="sub">Install the browser, press <b>Cmd+L</b> and type one of these names.</p>
+  <div class="try">
+    <div class="site"><div class="name">sfadocs.nerd</div><p>The SFAGHC guide: every element, setting and action, with examples you can copy.</p><button data-name="sfadocs.nerd">Copy name</button></div>
+    <div class="site"><div class="name">search.cool</div><p>A search engine for Light.web sites that describe themselves with crawl lines.</p><button data-name="search.cool">Copy name</button></div>
+    <div class="site"><div class="name">blog.nerd</div><p>A small blog written entirely in SFAGHC, with posts, a theme and components.</p><button data-name="blog.nerd">Copy name</button></div>
+    <div class="site"><div class="name">wikeutral.wiki</div><p>A neutral, tech-only wiki that runs as a Light.web site.</p><button data-name="wikeutral.wiki">Copy name</button></div>
   </div>
 </div></section>
 
@@ -273,12 +328,13 @@ lwserve -name mysite.nerd -bore -dir ./pages</code></pre></div>
   <a href="https://github.com/Luishae07/lightweb">GitHub</a><a href="https://github.com/Luishae07/lightweb/wiki">Wiki</a><a href="https://github.com/Luishae07/lightweb/blob/main/CONTRIBUTING.md">Contribute</a><a href="https://github.com/Luishae07/lightweb/blob/main/LICENSE">License</a>
 </div></footer>
 
+<button class="totop" id="top2" aria-label="Back to top">&uarr;</button>
 <script>
 (function () {
   // newest version
   fetch('https://api.github.com/repos/Luishae07/lightweb/releases/latest', { headers: { Accept: 'application/vnd.github+json' } })
     .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (d) { if (d && d.tag_name) document.getElementById('ver').textContent = 'Latest: ' + d.tag_name; })
+    .then(function (d) { if (d && d.tag_name) document.getElementById('ver').textContent = 'Latest: ' + d.tag_name; document.getElementById('s-ver').textContent = d.tag_name; })
     .catch(function () {});
   // copy buttons
   document.querySelectorAll('.code button[data-copy]').forEach(function (b) {
@@ -297,6 +353,61 @@ lwserve -name mysite.nerd -bore -dir ./pages</code></pre></div>
     }, { threshold: 0.08 });
     items.forEach(function (i) { io.observe(i); });
   } else { items.forEach(function (i) { i.classList.add('in'); }); }
+
+  // light / dark switch, remembered if the browser allows it
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem('lw-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  document.getElementById('tt').addEventListener('click', function () {
+    var dark = root.getAttribute('data-theme') ? root.getAttribute('data-theme') === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var next = dark ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('lw-theme', next); } catch (e) {}
+  });
+  // the little browser in the hero shows a few sites in turn
+  var frames = [
+    ['blog.nerd', '<h3>Hello from my site</h3><p>Written in a single <code>.sf</code> file. No closing tags.</p><div class="row"><span class="chip">light.web</span><span class="chip">SFAGHC</span><span class="chip">encrypted</span></div><div class="card2"><b>Names, not numbers</b><span>The name service tells the browser where a site lives.</span></div>'],
+    ['search.cool', '<h3>Search Light.web</h3><p>Only sites that describe themselves.</p><div class="fake">weather balloon&hellip;</div><div class="row"><span class="chip">groundcheck</span><span class="chip">wiki</span><span class="chip">docs</span></div>'],
+    ['sfadocs.nerd', '<h3>The SFAGHC guide</h3><p>Everything a page can do.</p><ul><li>Elements and settings</li><li>State, fetch and actions</li><li>Components and themes</li></ul>']
+  ];
+  var mock = document.getElementById('mock'), maddr = document.getElementById('maddr'), fi = 0;
+  if (mock && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(function () {
+      fi = (fi + 1) % frames.length;
+      mock.classList.add('out');
+      setTimeout(function () { maddr.textContent = frames[fi][0]; mock.innerHTML = frames[fi][1]; mock.classList.remove('out'); }, 350);
+    }, 4500);
+  }
+  // live numbers from nodes.txt (written by the node-check bot)
+  fetch('https://raw.githubusercontent.com/Luishae07/lightweb/main/nodes.txt', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.text() : ''; })
+    .then(function (t) {
+      var m = /main SFW:[^\n]*sites (\d+)/.exec(t);
+      document.getElementById('s-names').textContent = m ? m[1] : '\u2013';
+      var mirrors = t.split('\n').filter(function (l) { var c = l.split('#')[0].trim(); return /^[^\s:]+:\d+$/.test(c); }).length;
+      document.getElementById('s-nodes').textContent = String(1 + mirrors);
+    })
+    .catch(function () { document.getElementById('s-names').textContent = '\u2013'; document.getElementById('s-nodes').textContent = '\u2013'; });
+  // copy a site name
+  document.querySelectorAll('.try button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy name'; }, 1500); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(b.getAttribute('data-name')).then(done, function () {}); else done();
+    });
+  });
+  // back to top button, and the section that is on screen is marked in the top bar
+  var top2 = document.getElementById('top2');
+  top2.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  window.addEventListener('scroll', function () { top2.classList.toggle('show', window.scrollY > 700); }, { passive: true });
+  var links = {};
+  document.querySelectorAll('nav .links a[href^="#"]').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting && links[e.target.id]) { Object.keys(links).forEach(function (k) { links[k].classList.remove('on'); }); links[e.target.id].classList.add('on'); }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    Object.keys(links).forEach(function (id) { var el = document.getElementById(id); if (el) so.observe(el); });
+  }
 })();
 </script>
 </body>
