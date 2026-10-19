@@ -57,7 +57,8 @@ def describe(addr):
     ping, sites = ask(addr, "LIST")
     if ping is None:
         return "down"
-    p = "ping %.1fs" % max(0.1, round(ping, 1))
+    # rounded to half seconds: every change of nodes.txt starts a new build of the website, so it must not change for small jitter
+    p = "ping %.1fs" % max(0.5, round(ping * 2) / 2)
     return p + (", sites %d" % sites if sites is not None else "")
 
 
