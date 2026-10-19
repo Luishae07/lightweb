@@ -115,6 +115,17 @@ h2{font-size:clamp(1.7rem,4.5vw,2.3rem);letter-spacing:-.025em;line-height:1.15;
 .arrow{align-self:center;color:var(--dim);font-size:1.4rem}
 @media (max-width:40rem){.arrow{display:none}}
 
+
+/* how names work */
+.tl{display:grid;gap:.9rem;counter-reset:t;margin-top:1rem}
+.tl .it{display:grid;grid-template-columns:2.2rem 1fr;gap:.9rem;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem}
+.tl .it::before{counter-increment:t;content:counter(t);width:2.2rem;height:2.2rem;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.95rem;color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.tl .it b{display:block;margin-bottom:.1rem}
+.tl .it span{color:var(--dim);font-size:.95rem}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.8rem;margin-top:1.1rem}
+.facts div{border-left:3px solid var(--accent);padding:.2rem .9rem;color:var(--dim);font-size:.94rem}
+.facts div b{color:var(--ink);display:block}
+
 footer{padding:2.4rem 0 3rem;color:var(--dim);font-size:.9rem;border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center}
 footer .sp{flex:1}
@@ -126,7 +137,7 @@ footer .sp{flex:1}
 <body>
 <nav><div class="wrap">
   <a class="logo" href="#top"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5v14h11"/></svg></i>Light.web</a>
-  <div class="links"><a href="#browser">Browser</a><a href="#host">Host a site</a><a class="opt" href="#language">Language</a><a class="opt" href="#mirrors">Mirrors</a><a href="https://github.com/Luishae07/lightweb">GitHub</a></div>
+  <div class="links"><a href="#browser">Browser</a><a href="#host">Host a site</a><a class="opt" href="#language">Language</a><a class="opt" href="#names">Names</a><a class="opt" href="#mirrors">Mirrors</a><a href="https://github.com/Luishae07/lightweb">GitHub</a></div>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
@@ -223,6 +234,23 @@ lwserve -name mysite.nerd -bore -dir ./pages</code></pre></div>
     <a href="https://github.com/Luishae07/lightweb/releases/latest"><b>Name service mirror</b><span>sfw-… for the same systems</span></a>
   </div>
   <p class="sub" style="margin-top:1rem">The Mac browser is not signed by Apple, so macOS asks you to confirm the first time: right-click the app, choose <b>Open</b>. The install line above avoids that.</p>
+</div></section>
+
+<section class="alt reveal" id="names"><div class="wrap">
+  <div class="eyebrow">How names work</div>
+  <h2>The SFW in four steps</h2>
+  <p class="sub">The SFW is the name service. It is like a phone book: it knows where a site lives and which fingerprint to trust. It never sees a single page.</p>
+  <div class="tl">
+    <div class="it"><div><b>A site registers its name</b><span><code>lwserve</code> sends the SFW the name (<code>mysite.nerd</code>), its address (for example a tunnel), its certificate fingerprint and its public key, all signed with the site's private key. It repeats this every 10 minutes, so a moved tunnel is found again.</span></div></div>
+    <div class="it"><div><b>The SFW checks and stores it</b><span>The ending (<code>.nerd</code>) must exist, the signature must be right and the clock must be within 10 minutes. A name is first come, first served: it belongs to whoever holds the key, so nobody else can take it over.</span></div></div>
+    <div class="it"><div><b>The browser looks the name up</b><span>Typing <code>mysite.nerd</code> makes the browser ask the SFW <code>LOOKUP mysite.nerd</code>. The answer is the site's address and fingerprint (and its key, which also works as an address).</span></div></div>
+    <div class="it"><div><b>The browser connects and verifies</b><span>It opens an encrypted connection to that address and accepts the site only if its certificate matches the fingerprint from the SFW. No certificate authority is involved, so a site can use a free self-made certificate.</span></div></div>
+  </div>
+  <div class="facts">
+    <div><b>Top-level names</b>A handful are built in. Anyone can make a new ending at maketld.web.</div>
+    <div><b>Signed records</b>The site's signature travels with the record, so a mirror cannot change an address unnoticed.</div>
+    <div><b>Only names</b>The SFW holds names, addresses, keys and fingerprints. Pages go straight from the site to the browser.</div>
+  </div>
 </div></section>
 
 <section class="reveal" id="mirrors"><div class="wrap">
