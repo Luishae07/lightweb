@@ -65,6 +65,13 @@ Not sure which chip you have? Run `uname -m`: `arm64` is Apple Silicon, `x86_64`
 Windows: download `Light.web-windows-amd64.exe` and open it (or take the `.zip` and unzip it). It is not signed, so SmartScreen may ask you
 to confirm: choose **More info**, then **Run anyway**.
 
+**About the virus scan.** The `.exe` is not signed, and on VirusTotal one engine out of about 70, Bkav Pro, flags it as
+`W32.Malware.…` (a generic guess, not a named virus). The others, including Microsoft Defender, do not. This is common for
+small unsigned programs. To be sure you have the same file that was scanned, compare its checksum with `SHA256SUMS`
+(`Get-FileHash Light.web-windows-amd64.exe` in PowerShell); the current one is
+`2b0f7df4d80d56f603f7dca75ee7b6005acfece6359e2f0e07a8c4e4425e4cf0`. If you would rather not take our word for it, run it in
+Windows Sandbox or a virtual machine first.
+
 Debian and Ubuntu:
 
     curl -fsSLO https://github.com/Luishae07/lightweb/releases/download/v0.3.7/lightweb_0.3.7_amd64.deb
