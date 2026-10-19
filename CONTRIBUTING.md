@@ -1,20 +1,22 @@
 # Contributing
 
-Thanks for wanting to help. The best way to help Light.web is to make something on it.
+Thanks for wanting to help. The best way to help Light.web is to host a mirror. A mirror keeps the name service reachable for everyone, and it takes one command.
 
-## Make a site
+## Host a mirror (the best way to help)
+
+A mirror is a read-only copy of the SFW name service that helps when the main one is away (`sfw -mirror <main> -bore`, see the
+[README](README.md)). To list yours, open a pull request that adds one `host:port` line to `nodes.txt`. Download `sfw-<your system>` from the
+[latest release](https://github.com/Luishae07/lightweb/releases/latest) and start it with `-bore` if you are on a home connection.
+Make sure it answers
+before you ask, and keep it running; a node that is down is dropped from the list.
+
+## Or make a site
 
 1. Install `lwserve` (see the [README](README.md)) and make a folder with an `index.sf` page.
 2. Start it with `lwserve -name yourname.nerd -bore -dir ./pages`. Names are first come, first served, so keep the `.lw` folder next to your pages: it holds the keys that prove the name is yours.
 3. Put a `document_description_crawl = "..."` line on the pages you want people to find. `search.cool` lists only pages that describe themselves.
 4. The SFAGHC language is described at `sfadocs.nerd` (open it in the Light.web browser).
 5. To run code on your site's server, add a `server.sfs` file (the SFAS language: routes, a small database, jobs). It only runs when somebody visits. The design is in the SFAS notes, and `sfashowcase.nerd` and `serverless.nerd` are examples.
-
-## Run a mirror
-
-A mirror is a read-only copy of the SFW name service that helps when the main one is away (`sfw -mirror <main> -bore`, see the
-[README](README.md)). To list yours, open a pull request that adds one `host:port` line to `nodes.txt`. Make sure it answers
-before you ask, and keep it running; a node that is down is dropped from the list.
 
 ## Share a function
 
