@@ -7,7 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="https://luishae07.github.io/lightweb/">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0f1217">
+<meta name="theme-color" content="#0c0f15">
+<meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Light.web: a small web of its own">
 <meta property="og:description" content="Websites with names like blog.nerd, pages written in one simple language, a browser for Mac and lwserve to host your own website from a folder.">
@@ -33,24 +34,10 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236aa8ff'/%3E%3Cstop offset='1' stop-color='%237a5cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Cpath d='M20 18v28h24' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
 :root{
-  --bg:#f6f7fb;--bg2:#eceffa;--ink:#141824;--dim:#5a6275;--card:#ffffff;--line:#e0e4f0;
-  --accent:#3b6df0;--accent2:#7a5cff;--accent-ink:#fff;--glow:rgba(91,120,255,.28);
-  --code:#0f1320;--code-ink:#cfe3ff;--code-dim:#7f8db0;--ok:#2a9d6a;--shadow:0 10px 30px rgba(30,40,90,.10);
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0c0f15;--bg2:#121725;--ink:#eef1f8;--dim:#98a2b8;--card:#141926;--line:#242b3d;
   --accent:#7ba0ff;--accent2:#a48bff;--accent-ink:#0b1022;--glow:rgba(110,140,255,.20);
   --code:#0a0d14;--code-ink:#cfe3ff;--code-dim:#6f7c9c;--ok:#4cc38a;--shadow:0 10px 30px rgba(0,0,0,.45);
-}}
-:root[data-theme="dark"]{
-  --bg:#0c0f15;--bg2:#121725;--ink:#eef1f8;--dim:#98a2b8;--card:#141926;--line:#242b3d;
-  --accent:#7ba0ff;--accent2:#a48bff;--accent-ink:#0b1022;--glow:rgba(110,140,255,.20);
-  --code:#0a0d14;--code-ink:#cfe3ff;--code-dim:#6f7c9c;--ok:#4cc38a;--shadow:0 10px 30px rgba(0,0,0,.45);
-}
-:root[data-theme="light"]{
-  --bg:#f6f7fb;--bg2:#eceffa;--ink:#141824;--dim:#5a6275;--card:#ffffff;--line:#e0e4f0;
-  --accent:#3b6df0;--accent2:#7a5cff;--accent-ink:#fff;--glow:rgba(91,120,255,.28);
-  --code:#0f1320;--code-ink:#cfe3ff;--code-dim:#7f8db0;--ok:#2a9d6a;--shadow:0 10px 30px rgba(30,40,90,.10);
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
@@ -163,8 +150,6 @@ h2{font-size:clamp(1.7rem,4.5vw,2.3rem);letter-spacing:-.025em;line-height:1.15;
 .hero{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;background-position:-1px -1px}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,var(--bg));pointer-events:none}
 .hero::before{z-index:0}.hero .wrap{z-index:1}
-.tbtn{margin-left:.3rem;width:2.1rem;height:2.1rem;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:grid;place-items:center;font-size:1rem}
-.tbtn:hover{border-color:var(--accent)}
 nav .links a.on{color:var(--ink);font-weight:600}
 .win .page{min-height:15.5rem;transition:opacity .35s}
 .win .page.out{opacity:0}
@@ -209,7 +194,7 @@ footer .sp{flex:1}
 <body>
 <nav><div class="wrap">
   <a class="logo" href="#top"><i><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5v14h11"/></svg></i>Light.web</a>
-  <div class="links"><a class="opt" href="#try">Try it</a><a class="opt" href="#faq">FAQ</a><a href="#browser">Browser</a><a href="#host">Host a site</a><a class="opt" href="#language">Language</a><a class="opt" href="#names">Names</a><a class="opt" href="#mirrors">Mirrors</a><a href="https://github.com/Luishae07/lightweb">GitHub</a><button class="tbtn" id="tt" title="Switch light and dark" aria-label="Switch light and dark">&#9680;</button></div>
+  <div class="links"><a class="opt" href="#try">Try it</a><a class="opt" href="#faq">FAQ</a><a href="#browser">Browser</a><a href="#host">Host a site</a><a class="opt" href="#language">Language</a><a class="opt" href="#names">Names</a><a class="opt" href="#mirrors">Mirrors</a><a href="https://github.com/Luishae07/lightweb">GitHub</a></div>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
@@ -258,10 +243,10 @@ footer .sp{flex:1}
 <section class="reveal" id="look"><div class="wrap">
   <div class="eyebrow">What it looks like</div>
   <h2>Real pages, drawn by the browser</h2>
-  <p class="sub">These are screenshots of the Light.web browser showing two pages of <code>sfashowcase.nerd</code>: a light page, and a counter in dark mode. Light and dark follow your system.</p>
+  <p class="sub">These are screenshots of the Light.web browser showing two pages of <code>sfashowcase.nerd</code>.</p>
   <div class="shots">
-    <figure><img src="img/home.png" width="1470" height="960" loading="lazy" alt="The Light.web browser showing the sfashowcase.nerd home page: a purple navigation bar, a heading and six cards that link to demos, in light mode"><figcaption>A page in light mode: <code>sfashowcase.nerd</code></figcaption></figure>
-    <figure><img src="img/counter.png" width="1470" height="960" loading="lazy" alt="The Light.web browser in dark mode showing a counter page with a number, a progress bar and buttons for minus one, plus one, plus five and reset"><figcaption>A counter in dark mode: the page redraws by itself when the value changes</figcaption></figure>
+    <figure><img src="img/home.png" width="1470" height="960" loading="lazy" alt="The Light.web browser showing the sfashowcase.nerd home page: a purple navigation bar, a heading and six cards that link to demos, in dark mode"><figcaption>A home page of cards: <code>sfashowcase.nerd</code></figcaption></figure>
+    <figure><img src="img/counter.png" width="1470" height="960" loading="lazy" alt="The Light.web browser in dark mode showing a counter page with a number, a progress bar and buttons for minus one, plus one, plus five and reset"><figcaption>A counter: the page redraws by itself when the value changes</figcaption></figure>
   </div>
 </div></section>
 
@@ -414,15 +399,6 @@ lwserve -name mysite.nerd -bore -dir ./pages</code></pre></div>
     items.forEach(function (i) { io.observe(i); });
   } else { items.forEach(function (i) { i.classList.add('in'); }); }
 
-  // light / dark switch, remembered if the browser allows it
-  var root = document.documentElement;
-  try { var saved = localStorage.getItem('lw-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
-  document.getElementById('tt').addEventListener('click', function () {
-    var dark = root.getAttribute('data-theme') ? root.getAttribute('data-theme') === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var next = dark ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem('lw-theme', next); } catch (e) {}
-  });
   // the little browser in the hero shows a few sites in turn
   var frames = [
     ['blog.nerd', '<h3>Hello from my site</h3><p>Written in a single <code>.sf</code> file. No closing tags.</p><div class="row"><span class="chip">light.web</span><span class="chip">SFAGHC</span><span class="chip">encrypted</span></div><div class="card2"><b>Names, not numbers</b><span>The name service tells the browser where a site lives.</span></div>'],
