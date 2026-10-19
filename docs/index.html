@@ -264,8 +264,8 @@ lwserve -name mysite.nerd -bore -dir ./pages</code></pre></div>
     <div class="node">Mirror<small>read-only</small></div><span class="arrow">&rarr;</span>
     <div class="node">Your site<small>verified by fingerprint</small></div>
   </div>
-  <div class="code"><button data-copy>Copy</button><pre><code>sfw -mirror &lt;main SFW address&gt; -listen :7001</code></pre></div>
-  <p class="sub" style="margin-top:.6rem">Add your public address to <code>nodes.txt</code> with a pull request. Details are in the <a href="https://github.com/Luishae07/lightweb#run-an-sfw-mirror-help-the-name-service">README</a>.</p>
+  <div class="code"><button data-copy>Copy</button><pre><code>sfw -mirror &lt;main SFW address&gt; -bore -listen :7001</code></pre></div>
+  <p class="sub" style="margin-top:.6rem">With <code>-bore</code> the mirror opens a free public tunnel by itself and prints its address. Add that address to <code>nodes.txt</code> with a pull request. Details are in the <a href="https://github.com/Luishae07/lightweb#run-an-sfw-mirror-help-the-name-service">README</a>.</p>
 </div></section>
 
 <footer><div class="wrap">
