@@ -92,6 +92,22 @@ browser with `-sfw host:port`.
 
 Names show up in a mirror after their site next refreshes its registration, which happens every 10 minutes.
 
+## Server programs (SFAS)
+
+`lwserve` can run server code for a site. Put a `server.sfs` file in the site folder; it is written in SFAS, the server
+language of Light.web. A program has routes, a small database (LightDB) and no always-running process: `lwserve` starts the
+code when somebody visits and stops it after `-idle` time (default 5 minutes).
+
+A job is three lines, with no code. This one turns a PNG into a lossless JPEG XL file, made by our own encoder that is built
+into `lwserve`:
+
+    GetFunction png/convert/jxl allow_untrusted_functions=true
+    ConvertPng=/pics/photo.png
+    ConvertJxl=/pics/photo.jxl
+
+Opening `/pics/photo.jxl` returns the converted picture. Other functions come from the function store, the site
+`functions.nerd` (for example `xml/json/convert`); each downloaded function is pinned in `functions.lock`.
+
 ## About the name `.sf` pages
 
 `.sf` pages describe structure, layout, style, state and logic in one file. A page can describe itself for search engines
@@ -99,6 +115,6 @@ with `document_description_crawl = "..."`. Pages in the older `.lw` format work 
 
 ## Status and license
 
-Early version (v0.3.5). The browser and `lwserve` are built from source that is not published here yet.
+Early version (v0.3.7). The browser and `lwserve` are built from source that is not published here yet.
 
 Released under the [MIT License](LICENSE).
