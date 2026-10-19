@@ -1,0 +1,26 @@
+name: Check name service nodes
+
+# Every five minutes: measure each node in nodes.txt (ping and number of sites) and write it next to the address.
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/nodecheck.py
+      - name: Save nodes.txt if it changed
+        run: |
+          if ! git diff --quiet nodes.txt; then
+            git config user.name "nodes-bot"
+            git config user.email "nodes-bot@users.noreply.github.com"
+            git add nodes.txt
+            git commit -m "Update node info"
+            git push
+          fi
