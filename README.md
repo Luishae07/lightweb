@@ -20,33 +20,33 @@ checks its checksum, and puts `lwserve` in `~/.local/bin`. Windows: download `lw
 | `lwserve-windows-amd64.exe` | Windows |
 | `Light.web-macos-apple-silicon.zip`, `Light.web-macos-intel.zip` | the Light.web browser for Mac |
 | `Light.web-windows-amd64.exe`, `Light.web-windows-amd64.zip` | the Light.web browser for Windows (the same program, bare or zipped) |
-| `lightweb_0.3.8_amd64.deb` | the Light.web browser for Debian and Ubuntu (22.04 or newer) |
+| `lightweb_0.3.10_amd64.deb` | the Light.web browser for Debian and Ubuntu (22.04 or newer) |
 | `SHA256SUMS` | checksums of all of the above |
 
-## Direct downloads (v0.3.8)
+## Direct downloads (v0.3.10)
 
 | For | Download |
 |---|---|
-| Windows (bare program) | [Light.web-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/Light.web-windows-amd64.exe) |
-| Windows (zipped) | [Light.web-windows-amd64.zip](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/Light.web-windows-amd64.zip) |
-| Debian / Ubuntu | [lightweb_0.3.8_amd64.deb](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lightweb_0.3.8_amd64.deb) |
-| Mac, Apple Silicon | [Light.web-macos-apple-silicon.zip](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/Light.web-macos-apple-silicon.zip) |
-| Mac, Intel | [Light.web-macos-intel.zip](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/Light.web-macos-intel.zip) |
-| lwserve, Linux (amd64) | [lwserve-linux-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lwserve-linux-amd64) |
-| lwserve, Linux (arm64) | [lwserve-linux-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lwserve-linux-arm64) |
-| lwserve, Mac (Apple Silicon) | [lwserve-macos-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lwserve-macos-arm64) |
-| lwserve, Mac (Intel) | [lwserve-macos-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lwserve-macos-amd64) |
-| lwserve, Windows | [lwserve-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lwserve-windows-amd64.exe) |
-| sfw, Linux (amd64) | [sfw-linux-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/sfw-linux-amd64) |
-| sfw, Linux (arm64) | [sfw-linux-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/sfw-linux-arm64) |
-| sfw, Mac (Apple Silicon) | [sfw-macos-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/sfw-macos-arm64) |
-| sfw, Mac (Intel) | [sfw-macos-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/sfw-macos-amd64) |
-| sfw, Windows | [sfw-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/sfw-windows-amd64.exe) |
-| lwlive, Linux | [lwlive-linux-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lwlive-linux-amd64) |
-| lwlive, Mac (Apple Silicon) | [lwlive-macos-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lwlive-macos-arm64) |
-| lwlive, Mac (Intel) | [lwlive-macos-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lwlive-macos-amd64) |
-| lwlive, Windows | [lwlive-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lwlive-windows-amd64.exe) |
-| checksums of every file | [SHA256SUMS](https://github.com/Luishae07/lightweb/releases/download/v0.3.8/SHA256SUMS) |
+| Windows (bare program) | [Light.web-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/Light.web-windows-amd64.exe) |
+| Windows (zipped) | [Light.web-windows-amd64.zip](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/Light.web-windows-amd64.zip) |
+| Debian / Ubuntu | [lightweb_0.3.10_amd64.deb](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lightweb_0.3.10_amd64.deb) |
+| Mac, Apple Silicon | [Light.web-macos-apple-silicon.zip](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/Light.web-macos-apple-silicon.zip) |
+| Mac, Intel | [Light.web-macos-intel.zip](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/Light.web-macos-intel.zip) |
+| lwserve, Linux (amd64) | [lwserve-linux-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lwserve-linux-amd64) |
+| lwserve, Linux (arm64) | [lwserve-linux-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lwserve-linux-arm64) |
+| lwserve, Mac (Apple Silicon) | [lwserve-macos-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lwserve-macos-arm64) |
+| lwserve, Mac (Intel) | [lwserve-macos-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lwserve-macos-amd64) |
+| lwserve, Windows | [lwserve-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lwserve-windows-amd64.exe) |
+| sfw, Linux (amd64) | [sfw-linux-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/sfw-linux-amd64) |
+| sfw, Linux (arm64) | [sfw-linux-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/sfw-linux-arm64) |
+| sfw, Mac (Apple Silicon) | [sfw-macos-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/sfw-macos-arm64) |
+| sfw, Mac (Intel) | [sfw-macos-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/sfw-macos-amd64) |
+| sfw, Windows | [sfw-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/sfw-windows-amd64.exe) |
+| lwlive, Linux | [lwlive-linux-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lwlive-linux-amd64) |
+| lwlive, Mac (Apple Silicon) | [lwlive-macos-arm64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lwlive-macos-arm64) |
+| lwlive, Mac (Intel) | [lwlive-macos-amd64](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lwlive-macos-amd64) |
+| lwlive, Windows | [lwlive-windows-amd64.exe](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lwlive-windows-amd64.exe) |
+| checksums of every file | [SHA256SUMS](https://github.com/Luishae07/lightweb/releases/download/v0.3.10/SHA256SUMS) |
 
 The newest release is always at <https://github.com/Luishae07/lightweb/releases/latest>.
 
@@ -78,8 +78,8 @@ Windows Sandbox or a virtual machine first.
 
 Debian and Ubuntu:
 
-    curl -fsSLO https://github.com/Luishae07/lightweb/releases/download/v0.3.8/lightweb_0.3.8_amd64.deb
-    sudo apt install ./lightweb_0.3.8_amd64.deb
+    curl -fsSLO https://github.com/Luishae07/lightweb/releases/download/v0.3.10/lightweb_0.3.10_amd64.deb
+    sudo apt install ./lightweb_0.3.10_amd64.deb
 
 Then start **Light.web** from the menu, or run `lightweb`. Press **Ctrl+L** and type a name such as `blog.nerd`.
 
@@ -163,6 +163,6 @@ with `document_description_crawl = "..."`. Pages in the older `.lw` format work 
 
 ## Status and license
 
-Early version (v0.3.8). The browser and `lwserve` are built from source that is not published here yet.
+Early version (v0.3.10). The browser and `lwserve` are built from source that is not published here yet.
 
 Released under the [MIT License](LICENSE).
