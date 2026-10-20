@@ -2,6 +2,6 @@
 # node that answers (the main SFW is always tried as well). To add a mirror, run  sfw -mirror <main SFW> -listen :7001
 # and add your public address here in a pull request. Lines starting with # are comments. The ping and number of sites after each
 # address are measured every five minutes by a bot (tools/nodecheck.py), so do not write them yourself.
-# main SFW: ping 0.5s, sites 100
+# main SFW: ping 0.5s, sites 101
 bore.pub:25960  # down
 bore.pub:15896  # down
