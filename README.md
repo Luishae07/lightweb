@@ -4,6 +4,52 @@
 `blog.nerd`, pages are written in **SFAGHC** (`.sf` files), and a browser finds a site by asking a name service where it lives.
 This repository holds the downloads for the program that hosts a site.
 
+## Start here (two minutes)
+
+**To look around:** install the browser for your system (see [The browser](#the-browser-macos) below), open it, and click a
+site on the start page. Or press **Ctrl+L** (**Cmd+L** on a Mac) and type `search.cool`.
+
+**To put up your own site:**
+
+    curl -fsSL https://raw.githubusercontent.com/Luishae07/lightweb/main/install.sh | sh
+    mkdir mysite && printf 'page "Hello"\n  column\n    h1 "It works"\n' > mysite/index.sf
+    lwserve -name mysite.nerd -bore -dir ./mysite
+
+Open `mysite.nerd` in the browser. That is all: the name is yours as long as you keep the `mysite/.lw` folder.
+
+### Words used here
+
+| Word | Meaning |
+|---|---|
+| **Light.web** | the small web of its own: sites, a name service and a browser |
+| **Site** | a folder of pages with a name like `blog.nerd`, served by `lwserve` |
+| **SFW** | the name service: it says where a name lives, and never serves pages |
+| **Mirror** | a read-only copy of the SFW that anyone can run |
+| **SFAGHC** (`.sf`) | the page language: structure, layout, style and logic in one file |
+| **SFAS** (`server.sfs`) | the server language: routes, the LightDB database, jobs |
+| **AAFTS** | the small scripting language inside `.lw` pages |
+| **Key** | the 11-character code that belongs to a name; the owner's signing key proves the name is theirs |
+
+## Using the browser
+
+The browser opens on a **start page** with your bookmarks, the sites you visited lately and a few sites to try. The bar at the top
+has back, forward, reload, the address box, a home button (⌂) and a bookmark star (☆). Click the star to keep a page; click it again
+to remove it. Bookmarks are in `~/.lightweb/bookmarks` and recent sites in `~/.lightweb/recent`, one per line, so you can edit them
+with any text editor.
+
+| Keys (Ctrl on Linux and Windows, Cmd on a Mac) | What it does |
+|---|---|
+| Ctrl+L | go to the address box and select it |
+| Ctrl+R | reload |
+| Ctrl+[ or Ctrl+← | back |
+| Ctrl+] or Ctrl+→ | forward |
+| Ctrl+D | change the theme: follow the system, dark, light |
+| Ctrl+S | save the current file to your Downloads folder |
+| F12 | show every request the browser has made (address, status, size, time) |
+
+Type just the name (`blog.nerd`) or a name with a page (`blog.nerd/about`). Start the browser with `-sfw host:port` to use one
+name service only.
+
 ## Install lwserve (runs a site)
 
 Linux and macOS:
@@ -155,6 +201,19 @@ into `lwserve`:
 
 Opening `/pics/photo.jxl` returns the converted picture. Other functions come from the function store, the site
 `functions.nerd` (for example `xml/json/convert`); each downloaded function is pinned in `functions.lock`.
+
+## If something goes wrong
+
+| What you see | What to do |
+|---|---|
+| `X5 name not known` | the name is not registered, or the site is off. Check the spelling, and that its `lwserve` is running. A new name can take up to 10 minutes to reach a mirror. |
+| `X2 that name is already taken` | someone else holds it. Pick another name, or use the `.lw` folder you registered it with. |
+| `X1 page not found` | the site is there but has no such page. Try the front page, `name/`. |
+| `X6` (connection or certificate) | the site's address changed or its tunnel stopped. Wait a minute and reload; with `-bore` the site registers the new address by itself. |
+| `the clock is off by more than 10 minutes` | fix the clock of the computer that runs `lwserve`; signed registrations are checked against the time. |
+| A page is blank on a phone or in a web browser | Light.web does not run in an ordinary web browser; it needs the Light.web app. |
+| Windows warns about the file | the program is not signed. See "About the virus scan" above. |
+| Nothing at all loads | press F12 to see the requests, and try `-sfw host:port` with a mirror from `nodes.txt`. |
 
 ## About the name `.sf` pages
 
