@@ -51,6 +51,8 @@ Run it:
     sfas run hello.sfs
     [{name: "Grace", age: 85}]
 
+There is also a command for working with a database directly: see [The `lightdb` command](#the-lightdb-command).
+
 ## The `sfas` command
 
     sfas run [options] program.sfs          run a program
@@ -199,6 +201,48 @@ Every site has its own database in `<site folder>/.lw/data/`: tables of maps, ea
 | `.sort(field, down)` / `.limit(n)` | order and cut the result |
 
 Keep what a program must remember in LightDB or in files, never in memory: a serverless program can stop at any moment.
+
+### The `lightdb` command
+
+`lightdb` opens a database, or makes one, and lets you work with it, like `sqlite3` does for SQLite. Download `lightdb-<your system>`
+from the [latest release](https://github.com/Luishae07/lightweb/releases/latest) (same systems as `sfas`).
+
+    lightdb mydata                     open the database in the folder mydata (made if it is not there)
+    lightdb mydata -c 'db.posts.all()' run one command and print the answer
+    lightdb mydata -f setup.sfs        run a file of commands
+    echo 'db.tables()' | lightdb mydata
+
+Point it at a site's own database with `lightdb mysite/.lw/data` (stop the site first: one program may open a database at a time).
+
+Every line is SFAS. An expression prints its value; a statement is run. Names you make stay until you leave.
+
+    lightdb> db.posts.add({title: "hi", n: 1})
+    {id: 1, title: "hi", n: 1}
+    lightdb> db.posts.all()
+    [{id: 1, title: "hi", n: 1}]
+    lightdb> x <- 5
+    lightdb> x * 2
+    10
+    lightdb> for p in db.posts.all()
+         ...>   say p.title
+         ...>
+    hi
+
+A line that starts with `if`, `for`, `while`, `func`, `try` or `route` starts a block, which ends at an empty line.
+
+| Command | What it does |
+|---|---|
+| `.tables` | list the tables |
+| `.count [table]` | rows per table |
+| `.schema [table]` | rows, indexes and the fields of the first row |
+| `.dump [table]` | every row as JSON, one per line |
+| `.mode json` / `.mode text` | how answers are printed (or start with `-json`) |
+| `.read file.sfs` | run a file |
+| `.compact` | shrink the log file |
+| `.help`, `.quit` | help, leave (Ctrl-D too) |
+
+Options: `-c command`, `-f file`, `-json`, `-new` (fail if the database exists), `-existing` (fail if it does not, so a typo does not
+make an empty database). In `-c`, `-f` and pipes the exit code is 1 if a command failed. For arrow-key history use `rlwrap lightdb mydata`.
 
 ## What a program may do
 
