@@ -68,6 +68,7 @@ checks its checksum, and puts `lwserve` in `~/.local/bin`. Windows: download `lw
 | `Light.web-windows-amd64.exe`, `Light.web-windows-amd64.zip` | the Light.web browser for Windows (the same program, bare or zipped) |
 | `lightweb_0.3.11_amd64.deb` | the Light.web browser for Debian and Ubuntu (22.04 or newer) |
 | `sfas-linux-amd64`, `sfas-linux-arm64`, `sfas-macos-arm64`, `sfas-macos-amd64`, `sfas-windows-amd64.exe` | `sfas`, which runs and checks SFAS server programs ([documentation](docs.md)) |
+| `lightdb-linux-amd64`, `lightdb-linux-arm64`, `lightdb-macos-arm64`, `lightdb-macos-amd64`, `lightdb-windows-amd64.exe` | `lightdb`, a command to open or make a LightDB database and query it, like `sqlite3` ([documentation](docs.md#the-lightdb-command)) |
 | `SHA256SUMS` | checksums of all of the above |
 
 ## Direct downloads (v0.3.11)
