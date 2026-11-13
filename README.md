@@ -67,6 +67,7 @@ checks its checksum, and puts `lwserve` in `~/.local/bin`. Windows: download `lw
 | `Light.web-macos-apple-silicon.zip`, `Light.web-macos-intel.zip` | the Light.web browser for Mac |
 | `Light.web-windows-amd64.exe`, `Light.web-windows-amd64.zip` | the Light.web browser for Windows (the same program, bare or zipped) |
 | `lightweb_0.3.11_amd64.deb` | the Light.web browser for Debian and Ubuntu (22.04 or newer) |
+| `sfas-linux-amd64`, `sfas-linux-arm64`, `sfas-macos-arm64`, `sfas-macos-amd64`, `sfas-windows-amd64.exe` | `sfas`, which runs and checks SFAS server programs ([documentation](docs.md)) |
 | `SHA256SUMS` | checksums of all of the above |
 
 ## Direct downloads (v0.3.11)
@@ -187,6 +188,9 @@ browser with `-sfw host:port`.
 Names show up in a mirror after their site next refreshes its registration, which happens every 10 minutes.
 
 ## Server programs (SFAS)
+
+Full documentation: [docs.md](docs.md). To try the language without a website, download `sfas` from the release and run
+`sfas run hello.sfs`.
 
 `lwserve` can run server code for a site. Put a `server.sfs` file in the site folder; it is written in SFAS, the server
 language of Light.web. A program has routes, a small database (LightDB) and no always-running process: `lwserve` starts the
